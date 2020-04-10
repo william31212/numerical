@@ -2,6 +2,7 @@
 
 using namespace std;
 double arr[105][105];
+double tmp[105];
 double x[105];
 
 double caltime_begin()
@@ -46,7 +47,7 @@ void print_array(int n)
 	{
 		for (int j = 1; j <= n+1; j++)
 		{
-			printf("%.lf ", arr[i][j]);
+			std::cout << arr[i][j] << " ";
 		}
 		printf("\n");
 	}
@@ -84,9 +85,10 @@ int main(int argc, char const *argv[])
 		{
 			for(int i = k+1; i <= n; i++)
 			{
+				tmp[i] = arr[i][k] / arr[k][k];
 				for(int j = 1; j <= n+1; j++)
 				{
-					arr[i][j] -= ((arr[i][k] / arr[k][k]) * arr[k][j]);
+					arr[i][j] = arr[i][j] - (tmp[i] * arr[k][j]);
 				}
 			}
 			print_array(n);
