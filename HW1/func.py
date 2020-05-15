@@ -1,5 +1,8 @@
 import math
 
+def test(x):
+    return x*x*x + 2*x - 3
+
 # a: -2, b: +2
 def f1(x):
     return math.exp(x)-3*x*math.cos(2*x)-8.3

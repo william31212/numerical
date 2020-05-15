@@ -3,7 +3,7 @@ from func import *
 
 # False-Postion-Method
 # deviation
-e = 10e-10
+e = 10e-5
 
 
 def sol(func, a, b):
@@ -40,7 +40,8 @@ def sol(func, a, b):
 
 
 if __name__ == "__main__":
-    sol(f1, -2, 2)
-    sol(f2, -5, 5)
-    sol(f3, -4, 3)
-    sol(f4, -6, 2)
+    sol(test, 0, 1.4)
+    # sol(f1, -2, 2)
+    # sol(f2, -5, 5)
+    # sol(f3, -4, 3)
+    # sol(f4, -6, 2)
