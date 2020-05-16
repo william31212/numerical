@@ -3,9 +3,6 @@ import matplotlib.pyplot as plt
 import random
 from data import *
 
-a = 2.5
-b = 7.5
-
 y = [[0 for i in range(25)]
         for j in range(25)]
 

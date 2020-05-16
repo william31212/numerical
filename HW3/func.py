@@ -4,9 +4,7 @@ from newton import *
 from forward import *
 from backward import *
 
+
 def func_1(x):
-    return x*x*x - 3*x - 1
-
-
-
+    return math.exp(x*math.sin(x))-x*math.cos(2*x)-2.8
 

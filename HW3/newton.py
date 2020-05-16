@@ -3,8 +3,6 @@ import matplotlib.pyplot as plt
 import random
 from data import *
 
-a = 2.5
-b = 7.5
 
 y = [[0 for i in range(25)]
      for j in range(25)]
@@ -30,7 +28,6 @@ def newton_method(input_x, x):
 
 newton_x = []
 newton_y = []
-lag_i = 0.0001
 
 
 def gen_newton(x):
@@ -48,26 +45,3 @@ def clear_newton():
     newton_y.clear()
 
 
-def main():
-    plt.figure()
-    plt.suptitle('newton', fontsize=10)
-    newton_init(x_diff, f_x_diff)
-    gen_newton(x_diff)
-    plt.subplot(1, 2, 1)
-    plt.title('testcase 1', fontsize=10)
-    plt.scatter(newton_x, newton_y, s=5)
-    plt.scatter(x_diff, f_x_diff, s=5)
-    clear_data()
-
-    newton_init(x_same, f_x_same)
-    gen_newton(x_same)
-    plt.subplot(1, 2, 2)
-    plt.title('testcase 2', fontsize=10)
-    plt.scatter(newton_x, newton_y, s=5)
-    plt.scatter(x_same, f_x_same, s=5)
-    clear_data()
-    plt.show()
-
-
-if __name__ == "__main__":
-    main()
