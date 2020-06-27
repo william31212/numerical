@@ -66,7 +66,6 @@ def cal_delta(src, aft, dim):
 		delta += pow(aft[i] - src[i], 2)
 
 	tmp = len(src) - dim
-	print("{} {}".format(dim, delta))
 	if tmp == 0:
 		return sys.float_info.max
 	else:
@@ -84,6 +83,15 @@ def find_best_choice(error):
 
 def main():
 	error = []
+	f = open('f(x).txt', 'w')
+	error_txt = open('error.txt', 'w')
+
+	f.write("x    f(x)\n")
+	for idx in range(len(x_data)):
+			f.write(str(x_data[idx]) + " " +  str(y_data[idx]) + '\n')
+
+	error_txt.write("x    p(x)\n")
+
 	for i in range(2, 46):
 		plt.figure()
 		A, b = find_matrix(i)
@@ -91,16 +99,17 @@ def main():
 		least_y = cal_least_y(x)
 		delta = cal_delta(y_data, least_y, i)
 		error.append(delta)
+		error_txt.write("{}    {:.6f}\n".format(i, delta))
 
-		plt.title('Least square => P' + str(i) +'(x)', fontsize=10)
-		plt.scatter(x_data, y_data, s=5)
-		plt.plot(x_data, y_data, label='f(x)')
+		# plt.title('Least square => P' + str(i) +'(x)', fontsize=10)
+		# plt.scatter(x_data, y_data, s=5)
+		# plt.plot(x_data, y_data, label='f(x)')
 
-		plt.scatter(x_data, least_y, s=5, color='red')
-		plt.plot(x_data, least_y, color='red', label='P(x)')
-		plt.legend(loc='upper right')
+		# plt.scatter(x_data, least_y, s=5, color='red')
+		# plt.plot(x_data, least_y, color='red', label='P(x)')
+		# plt.legend(loc='upper right')
 
-		plt.savefig("./result/P" + str(i) + "(x).png", dpi=300)
+		# plt.savefig("./result/P" + str(i) + "(x).png", dpi=300)
 
 	tmp = find_best_choice(error)
 	print("The best choice is {}".format(tmp))
