@@ -78,7 +78,7 @@ def find_best_choice(error):
 	for i in range(len(error)):
 		if error[i] <= best_val:
 			best_val = error[i]
-			best = i+2
+			best = i+1
 	return best
 
 def main():
@@ -101,15 +101,15 @@ def main():
 		error.append(delta)
 		error_txt.write("{}    {:.6f}\n".format(i, delta))
 
-		# plt.title('Least square => P' + str(i) +'(x)', fontsize=10)
-		# plt.scatter(x_data, y_data, s=5)
-		# plt.plot(x_data, y_data, label='f(x)')
+		plt.title('Least square => P' + str(i-1) +'(x)', fontsize=10)
+		plt.scatter(x_data, y_data, s=5)
+		plt.plot(x_data, y_data, label='f(x)')
 
-		# plt.scatter(x_data, least_y, s=5, color='red')
-		# plt.plot(x_data, least_y, color='red', label='P(x)')
-		# plt.legend(loc='upper right')
+		plt.scatter(x_data, least_y, s=5, color='red')
+		plt.plot(x_data, least_y, color='red', label='P(x)')
+		plt.legend(loc='upper right')
 
-		# plt.savefig("./result/P" + str(i) + "(x).png", dpi=300)
+		plt.savefig("./result/P" + str(i-1) + "(x).png", dpi=300)
 
 	tmp = find_best_choice(error)
 	print("The best choice is {}".format(tmp))
